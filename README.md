@@ -1,7 +1,6 @@
 python中需要提前pip的库
 
 1.selenium
-2.time
 
 selenium所需要的chromedriver需要匹配自己电脑里chrome的版本才行。
 
@@ -15,7 +14,6 @@ selenium所需要的chromedriver需要匹配自己电脑里chrome的版本才行
 Packages that need to be pip installed in advance
 
 1.selenium
-2.time
 
 The chromedriver required by selenium needs to match the version of chrome in your computer.
 
