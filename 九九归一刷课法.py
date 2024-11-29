@@ -7,10 +7,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.service import Service
 import logging
 
-logging.getLogger('selenium.webdriver.chrome.service').setLevel(logging.WARNING)
-
 def crawl_webpages(url_list):
     service = Service('C:\Program Files\Google\Chrome\Application\chromedriver.exe')
+    logging.getLogger('selenium.webdriver.chrome.service').setLevel(logging.WARNING)
     driver1 = webdriver.Chrome(service=service)
     firstopen=0
     for url in url_list:
@@ -18,7 +17,7 @@ def crawl_webpages(url_list):
         driver1.get(url) # 访问页面
         firstopen+=1
         if firstopen==1:
-            time.sleep(5) # 暂停5秒，扫码登录，时间不够可以自己调节
+            time.sleep(15) # 暂停5秒，扫码登录，时间不够可以自己调节
         else:
             time.sleep(1)
         try:
