@@ -13,7 +13,7 @@ def crawl_webpages(url_list):
         driver1.get(url) # 访问页面
         firstopen+=1
         if firstopen==1:
-            time.sleep(5) # 暂停10秒，等待浏览器缓冲changeImg
+            time.sleep(5) # 暂停5秒，扫码登录，时间不够可以自己调节
         else:
             time.sleep(1)
         try:
