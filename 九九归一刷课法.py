@@ -10,6 +10,7 @@ def crawl_webpages(url_list):
     driver1 = webdriver.Chrome(service=service)
     firstopen=0
     for url in url_list:
+        print("-----------------------------------------------------")
         driver1.get(url) # 访问页面
         firstopen+=1
         if firstopen==1:
@@ -30,16 +31,16 @@ def crawl_webpages(url_list):
             lessenstates = WebDriverWait(driver1, 2).until(
                 EC.presence_of_all_elements_located((By.CLASS_NAME, 'aside')))
             calssstate = lessenstates[2].find_element(By.CSS_SELECTOR, "use[data-v-3ef83e2f]").get_attribute('xlink:href')#查找课程是否已经完成
+            time.sleep(0.5) 
             if calssstate=="#icon--yiwancheng":#若完成课程则跳过
                 print(kechengname+" 之前已做完")
                 continue
-            print("-----------------------------------------------------")
             print(kechengname+" 开始刷课")
             for index in range(len(lessones)):
                 try:
                     lessonstate = lessenstates[3+index].find_element(By.CSS_SELECTOR, "use[data-v-1c75131d]").get_attribute('xlink:href')
                     if lessonstate=="#icon--yiwancheng":#若完成小节课程则跳过
-                        print("之前已完成"+str(index+1)+"小节课")
+                        print("之前已完成第"+str(index+1)+"小节课")
                         continue
                 except:
                     pass
@@ -81,24 +82,24 @@ def crawl_webpages(url_list):
                     except:
                         # 找不到元素时不做任何操作
                         pass
-                print("已完成"+str(index+1)+"小节课")
+                print("已刷完第"+str(index+1)+"小节课")
                 driver1.back()
                 driver1.refresh()
                 time.sleep(1)
                 open_button = driver1.find_element(By.CLASS_NAME, 'blue.ml20')# 定位到【展开】按钮
                 open_button.click() # 点击【提交】按钮
-                time.sleep(2) # 等待两秒
+                time.sleep(1) # 等待两秒
                 lessenstates = WebDriverWait(driver1, 2).until(
                 EC.presence_of_all_elements_located((By.CLASS_NAME, 'aside')))
         print(kechengname+" over")
-        print("-----------------------------------------------------")
     driver1.close()
+    print("-----------------------------------------------------")
     print("所有课程全刷完了")
 
 
 urls_to_crawl = {
-    '心理健康':'https://www.yuketang.cn/v2/web/studentLog/23441172/',
     '艺术的启示':'https://www.yuketang.cn/v2/web/studentLog/23441178/',
+    '心理健康':'https://www.yuketang.cn/v2/web/studentLog/23441172/',
     '工程伦理':'https://www.yuketang.cn/v2/web/studentLog/23441173/',
     '道德规范':'https://www.yuketang.cn/v2/web/studentLog/23441174/',
     '科技检索':'https://www.yuketang.cn/v2/web/studentLog/23441177/'
