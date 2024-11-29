@@ -9,7 +9,8 @@ selenium所需要的chromedriver需要匹配自己电脑里chrome的版本才行
 
 
 
-require pip in advance
+
+Packages that need to be pip installed in advance
 
 1.selenium
 2.time
