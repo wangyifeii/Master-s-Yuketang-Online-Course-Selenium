@@ -9,6 +9,7 @@ selenium所需要的chromedriver需要匹配自己电脑里chrome的版本才行
 
 运行后需要扫码登录一次，后续无需操作
 
+目前脚本可以自动刷视频，讨论题自动复制评论回复，答题暂时不能完成
 
 
 Packages that need to be pip installed in advance
