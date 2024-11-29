@@ -5,6 +5,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.service import Service
+import logging
+
+logging.getLogger('selenium.webdriver.chrome.service').setLevel(logging.WARNING)
+
 def crawl_webpages(url_list):
     service = Service('C:\Program Files\Google\Chrome\Application\chromedriver.exe')
     driver1 = webdriver.Chrome(service=service)
@@ -49,7 +53,7 @@ def crawl_webpages(url_list):
                 lesson.click()
                 time.sleep(2)
                 try:
-                    video_layer = WebDriverWait(driver1, 3).until(
+                    video_layer = WebDriverWait(driver1, 2).until(
                         EC.presence_of_element_located((By.CLASS_NAME, 'xt_video_player_big_play_layer.pause_show'))
                     )
                     # 如果找到视频层，则点击播放按钮
