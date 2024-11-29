@@ -6,7 +6,7 @@ python中需要提前pip的库
 selenium所需要的chromedriver需要匹配自己电脑里chrome的版本才行。
 
 第九行 service = Service('C:\Program Files\Google\Chrome\Application\chromedriver.exe')，改为自己电脑中chromedriver.exe所在的位置，防止每次运行都需要重新缓冲。
-
+运行后需要扫码登录一次，后续无需操作
 
 
 
